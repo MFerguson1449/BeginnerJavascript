@@ -65,6 +65,10 @@ function ageInDogYears(humanAge) {
    return dogYearsAge;
 }
 
+function deleteCard() {
+      parentElement.remove();
+}
+
 function generatePlayerCard(name, age, height) {
    const myCard = `
    <div class='playerCard'>
@@ -77,10 +81,9 @@ function generatePlayerCard(name, age, height) {
 
    // Delete Card Button
    const removeButton = document.createElement('button');
-   const playerCardDiv = document.querySelector('.playerCard');
    removeButton.textContent = 'Remove Card';
-   playerCardDiv.appendChild(removeButton);
-
+   removeButton.classList.add('remButton');
+   myCardsDiv.appendChild(removeButton);
 }
 
 const myCardsDiv = document.createElement('div');
@@ -93,6 +96,8 @@ generatePlayerCard('Eileen', 26, '5ft 6in');
 generatePlayerCard('Ivy', 5, '2ft');
 generatePlayerCard('VJ', 27, '6ft');
 
+const deleteHandler = document.querySelector('.remButton');
+deleteHandler.addEventListener('click', deleteCard());
 
 // Make a div
 
