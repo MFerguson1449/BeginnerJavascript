@@ -72,12 +72,28 @@ function generatePlayerCard(name, age, height) {
       <p>They are ${height} and ${age} years old. In dog years this person would be ${ageInDogYears(age)}. That would be a tall dog!
    </div>
    `;
-   document.body.appendChild(myCard)
+   const myFrag = document.createRange().createContextualFragment(myCard);
+   myCardsDiv.appendChild(myFrag);
+
+   // Delete Card Button
+   const removeButton = document.createElement('button');
+   const playerCardDiv = document.querySelector('.playerCard');
+   removeButton.textContent = 'Remove Card';
+   playerCardDiv.appendChild(removeButton);
+
 }
 
-const funkyDiv = document.createElement('div');
-document.body.appendChild(funkyDiv);
-funkyDiv.classList.add('cards');
+const myCardsDiv = document.createElement('div');
+myCardsDiv.classList.add('cards');
+myDiv.insertAdjacentElement('beforebegin', myCardsDiv);
+
+
+generatePlayerCard('Mike', 27, '6ft');
+generatePlayerCard('Eileen', 26, '5ft 6in');
+generatePlayerCard('Ivy', 5, '2ft');
+generatePlayerCard('VJ', 27, '6ft');
+
+
 // Make a div
 
 // add a class of wrapper to it
@@ -105,7 +121,7 @@ funkyDiv.classList.add('cards');
 
 // create a function called generatePlayerCard that takes in three arguments: name, age, and height
 
-// ! have that function return html that looks like this:
+// have that function return html that looks like this:
 // <div class="playerCard">
 //   <h2>NAME — AGE</h2>
 //   <p>They are HEIGHT and AGE years old. In Dog years this person would be AGEINDOGYEARS. That would be a tall dog!</p>
