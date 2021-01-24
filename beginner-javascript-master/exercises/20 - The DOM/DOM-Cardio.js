@@ -82,8 +82,14 @@ function generatePlayerCard(name, age, height) {
    // Delete Card Button
    const removeButton = document.createElement('button');
    removeButton.textContent = 'Remove Card';
-   removeButton.classList.add('remButton');
    myCardsDiv.appendChild(removeButton);
+
+   
+   function deleteCard() {
+      removeButton.parentElement.remove();
+   }
+
+   removeButton.addEventListener('click', deleteCard);
 }
 
 const myCardsDiv = document.createElement('div');
@@ -95,9 +101,6 @@ generatePlayerCard('Mike', 27, '6ft');
 generatePlayerCard('Eileen', 26, '5ft 6in');
 generatePlayerCard('Ivy', 5, '2ft');
 generatePlayerCard('VJ', 27, '6ft');
-
-const deleteHandler = document.querySelector('.remButton');
-deleteHandler.addEventListener('click', deleteCard());
 
 // Make a div
 
